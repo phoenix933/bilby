@@ -30,14 +30,7 @@
 		}
 
 		a {
-			display: flex;
-			align-items: center;
-			gap: 0.5rem;
-
 			padding: 1rem;
-
-			cursor: pointer;
-			text-decoration: none;
 			color: inherit;
 
 			:global(svg) {

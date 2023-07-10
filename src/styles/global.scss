@@ -15,3 +15,18 @@ body {
     font-family: 'Roboto', sans-serif;
     overscroll-behavior: none;
 }
+
+a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    transition: all 0.25s ease-in-out;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}

@@ -1,7 +1,7 @@
 import type { DocumentSnapshot, FirestoreDataConverter, SnapshotOptions } from "firebase/firestore";
 
 export type Document = {
-    id: number;
+    id: string;
     title: string;
     body: string;
     url: string;
@@ -9,9 +9,14 @@ export type Document = {
 }
 
 export const documentConverter: FirestoreDataConverter<Document> = {
-    toFirestore: (document: Document) => document,
+    toFirestore: (document: Document) => () => {
+        const { title, body, url, label } = document;
+
+        return { title, body, url, label };
+    },
     fromFirestore: (snapshot: DocumentSnapshot, options: SnapshotOptions) => {
-        const { id, title, body, url, label } = snapshot.data(options) ?? {};
+        const { id } = snapshot;
+        const { title, body, url, label } = snapshot.data(options) ?? {};
 
         return {
             id,

@@ -1,14 +1,8 @@
 <script lang="ts">
-	import { getDocuments } from '$api/documents';
 	import { page } from '$app/stores';
-	import { onMount } from 'svelte';
 	import NavigationItem from './NavigationItem.svelte';
 
-	let documents: any[] = [];
-
-	onMount(async () => {
-		documents = await getDocuments();
-	});
+	$: documents = $page.data.documents;
 </script>
 
 <aside>

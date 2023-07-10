@@ -7,7 +7,7 @@
 </script>
 
 <li class:selected>
-	<a href="/documents/{document.id}">
+	<a href="/{document.id}">
 		<DocumentIcon />
 
 		<span>

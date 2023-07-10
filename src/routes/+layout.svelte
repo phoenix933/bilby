@@ -1,15 +1,6 @@
 <script lang="ts">
 	import '$styles/global.scss';
-
-	import { getDocuments } from '$api/documents';
-	import { onMount } from 'svelte';
 	import Navigation from './Navigation.svelte';
-
-	let documents: any[] = [];
-
-	onMount(async () => {
-		documents = await getDocuments();
-	});
 </script>
 
 <div>

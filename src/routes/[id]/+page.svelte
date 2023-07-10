@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Document } from '$types/Document';
-	import Label from '$components/Label.svelte';
+	import Chip from '$components/Chip.svelte';
 	import ShareIcon from '$components/icons/ShareIcon.svelte';
 	import LabelForm from './LabelForm.svelte';
 	import { documents } from '$stores/documents';
@@ -15,9 +15,7 @@
 	</h1>
 
 	<div>
-		{#if document.label}
-			<Label>{document.label}</Label>
-		{/if}
+		<Chip ringed={!document.label}>{document.label ?? 'No label'}</Chip>
 
 		<a href={document.url} target="_blank" title="Full article">
 			<ShareIcon />
@@ -50,6 +48,9 @@
 			height: 40px;
 
 			margin-bottom: 2rem;
+
+			.no-label {
+			}
 
 			a {
 				margin-left: auto;

@@ -1,4 +1,8 @@
-<span>
+<script lang="ts">
+	export let ringed = false;
+</script>
+
+<span class:ringed>
 	<slot />
 </span>
 
@@ -7,12 +11,19 @@
 		padding: 0.5rem 1rem;
 
 		background-color: rgb(79, 70, 229);
-        color: white;
+		border: 2px solid transparent;
+
+		color: white;
 		border-radius: 1.5rem;
 
 		font-size: 0.75rem;
 		font-weight: bold;
 		text-align: center;
 		text-transform: uppercase;
+
+		&.ringed {
+			border-color: rgb(79, 70, 229);
+			background-color: transparent;
+		}
 	}
 </style>

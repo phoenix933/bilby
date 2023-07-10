@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Label from '$components/Label.svelte';
+	import Chip from '$components/Chip.svelte';
 	import DocumentIcon from '$components/icons/DocumentIcon.svelte';
 	import type { Document } from '$types/Document';
 
@@ -16,7 +16,7 @@
 		</span>
 
 		{#if document.label}
-			<Label>{document.label}</Label>
+			<Chip>{document.label}</Chip>
 		{/if}
 	</a>
 </li>

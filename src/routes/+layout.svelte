@@ -14,7 +14,7 @@
 <style lang="scss">
 	div {
 		display: grid;
-		grid-template-columns: 25% 1fr;
+		grid-template-columns: 30% 1fr;
 		height: 100vh;
 		overflow: hidden;
 

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Label from '$components/Label.svelte';
 	import DocumentIcon from '$components/icons/DocumentIcon.svelte';
 	import type { Document } from '$types/Document';
 
@@ -11,22 +12,30 @@
 		<DocumentIcon />
 
 		<span>
-			{document.id}
-			{document.title}
 			{document.title}
 		</span>
+
+		{#if document.label}
+			<Label>{document.label}</Label>
+		{/if}
 	</a>
 </li>
 
 <style lang="scss">
 	li {
 		border-radius: 1rem;
-		transition: all 0.25s ease-in-out;
+		transition: background-color 0.25s ease-in-out;
 		margin-top: 1rem;
 
 		&.selected {
 			background-color: rgb(15, 186, 129);
 			color: black;
+
+			&:hover {
+				a {
+					opacity: 1;
+				}
+			}
 		}
 
 		a {

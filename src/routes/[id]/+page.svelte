@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Label from '$components/Label.svelte';
 	import ShareIcon from '$components/icons/ShareIcon.svelte';
 
 	export let data;
@@ -11,11 +12,15 @@
 		{document.title}
 	</h1>
 
-	<a href={document.url} target="_blank" title="Full article">
-		<ShareIcon />
+	<div>
+		<Label>china</Label>
 
-		Read full article
-	</a>
+		<a href={document.url} target="_blank" title="Full article">
+			<ShareIcon />
+
+			Read full article
+		</a>
+	</div>
 
 	<p>
 		{document.body}
@@ -33,13 +38,16 @@
 			margin-bottom: 1rem;
 		}
 
-		a {
-			background-color: rgb(15, 186, 129);
-			color: black;
-			padding: 1rem;
-			border-radius: 1rem;
+		div {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
 
 			margin-bottom: 2rem;
+
+			a {
+				color: rgb(15, 186, 129);
+			}
 		}
 
 		p {

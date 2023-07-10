@@ -13,6 +13,11 @@ const config = {
 		}),
 
 		prerender: { entries: [] },
+
+		alias: {
+			$api: 'src/api/*',
+			$components: 'src/components/*',
+		}
 	}
 };
 

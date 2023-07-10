@@ -25,15 +25,4 @@
 			overflow-y: scroll;
 		}
 	}
-
-	.center {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		gap: 2rem;
-		height: 100vh;
-
-		font-size: 2rem;
-	}
 </style>

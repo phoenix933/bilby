@@ -34,7 +34,7 @@
 			padding: 0;
 			margin: 0;
 
-			overflow-x: scroll;
+			padding-bottom: 3rem;
 		}
 	}
 </style>

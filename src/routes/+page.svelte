@@ -1,2 +1,14 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import { getDocuments } from '$api/documents';
+	import { onMount } from 'svelte';
+
+	let documents: any[] = [];
+
+	onMount(async () => {
+		documents = await getDocuments();
+	});
+</script>
+
+{#each documents as doc}
+	<p>{doc.title}</p>
+{/each}

@@ -5,7 +5,7 @@
 
 	export let data;
 
-	$: document = data.document;
+	$: ({ document } = data);
 </script>
 
 <article>
@@ -29,7 +29,7 @@
 		{document.body}
 	</p>
 
-	<LabelForm label={document.label} />
+	<LabelForm {document} />
 </article>
 
 <style lang="scss">

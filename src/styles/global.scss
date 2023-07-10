@@ -45,6 +45,11 @@ button {
 
     outline: none;
 
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
     &.ringed {
         background-color: transparent;
         border: 1px solid rgb(15, 186, 129);
@@ -57,7 +62,7 @@ button {
     transition: all 0.25s ease-in-out;
     cursor: pointer;
 
-    &:hover {
+    &:hover:not(:disabled) {
         opacity: 0.7;
     }
 

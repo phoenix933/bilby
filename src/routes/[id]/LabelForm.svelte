@@ -1,33 +1,62 @@
 <script lang="ts">
 	import CheckIcon from '$components/icons/CheckIcon.svelte';
+	import type { Document } from '$types/Document';
 	import RobotIcon from '$components/icons/RobotIcon.svelte';
 	import { getRandomLabel } from '$lib/labels';
+	import { updateDocumentLabel } from '$api/documents';
+	import Spinner from '$components/Spinner.svelte';
 
-	export let label = '';
+	export let document: Document;
 
-	function suggestLabel() {
+	let saving = false;
+
+	function suggest() {
 		label = getRandomLabel();
 	}
+
+	async function save() {
+		if (!label || !label?.trim().length) {
+			return;
+		}
+
+		try {
+			saving = true;
+
+			await updateDocumentLabel(document.id, label);
+		} catch (e: any) {
+			alert(e?.message || "Couldn't save changes");
+		} finally {
+			saving = false;
+		}
+	}
+
+	$: ({ label } = document);
 </script>
 
-<form>
+<form on:submit|preventDefault={save}>
 	<div class="input-container">
 		<label for="label"> Label </label>
 
-		<input id="label" placeholder="E.g. china" type="text" value={label || ''} />
+		<input id="label" placeholder="E.g. china" type="text" bind:value={label} />
 	</div>
 
 	<div class="footer">
-		<button class="ringed" type="button" on:click={suggestLabel}>
+		<button class="ringed" type="button" on:click={suggest}>
 			<RobotIcon />
 
 			Suggest label
 		</button>
 
-		<button type="submit">
-			<CheckIcon />
+		<button type="submit" disabled={!label || saving}>
+			{#if saving}
+				<Spinner />
 
-			Save changes
+				Saving...
+			{:else}
+				<CheckIcon />
+
+				Save changes
+			{/if}
 		</button>
 	</div>
 </form>

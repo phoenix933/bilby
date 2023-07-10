@@ -12,6 +12,7 @@
 
 		font-size: 0.75rem;
 		font-weight: bold;
+		text-align: center;
 		text-transform: uppercase;
 	}
 </style>

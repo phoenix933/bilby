@@ -18,7 +18,7 @@
 		try {
 			saving = true;
 
-			await documents.updateDocumentLabel(document.id, label || '');
+			await documents.updateDocumentLabel(document.id, label?.trim());
 		} catch (e: any) {
 			alert(e?.message || "Couldn't save changes");
 		} finally {
@@ -43,7 +43,7 @@
 			Suggest label
 		</button>
 
-		<button type="submit" disabled={!label || saving}>
+		<button type="submit" disabled={!label || !label?.trim().length || saving}>
 			{#if saving}
 				<Spinner />
 

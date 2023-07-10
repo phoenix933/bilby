@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Label from '$components/Label.svelte';
 	import ShareIcon from '$components/icons/ShareIcon.svelte';
+	import LabelForm from './LabelForm.svelte';
 
 	export let data;
 
@@ -13,7 +14,9 @@
 	</h1>
 
 	<div>
-		<Label>china</Label>
+		{#if document.label}
+			<Label>{document.label}</Label>
+		{/if}
 
 		<a href={document.url} target="_blank" title="Full article">
 			<ShareIcon />
@@ -25,6 +28,8 @@
 	<p>
 		{document.body}
 	</p>
+
+	<LabelForm label={document.label} />
 </article>
 
 <style lang="scss">
@@ -41,11 +46,12 @@
 		div {
 			display: flex;
 			align-items: center;
-			justify-content: space-between;
+			height: 40px;
 
 			margin-bottom: 2rem;
 
 			a {
+				margin-left: auto;
 				color: rgb(15, 186, 129);
 			}
 		}

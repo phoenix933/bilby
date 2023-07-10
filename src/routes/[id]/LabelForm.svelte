@@ -3,8 +3,8 @@
 	import type { Document } from '$types/Document';
 	import RobotIcon from '$components/icons/RobotIcon.svelte';
 	import { getRandomLabel } from '$lib/labels';
-	import { updateDocumentLabel } from '$api/documents';
 	import Spinner from '$components/Spinner.svelte';
+	import { documents } from '$stores/documents';
 
 	export let document: Document;
 
@@ -22,7 +22,7 @@
 		try {
 			saving = true;
 
-			await updateDocumentLabel(document.id, label);
+			await documents.updateDocumentLabel(document.id, label);
 		} catch (e: any) {
 			alert(e?.message || "Couldn't save changes");
 		} finally {
@@ -55,7 +55,7 @@
 			{:else}
 				<CheckIcon />
 
-				Save changes
+				Save label
 			{/if}
 		</button>
 	</div>

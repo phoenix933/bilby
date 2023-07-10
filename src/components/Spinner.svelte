@@ -9,17 +9,21 @@
 	.spinner {
 		display: inline-block;
 		position: relative;
-		width: 16px;
-		height: 16px;
+
+		$size: var(--size, 16px);
+		$border: calc($size / 8);
+
+		width: $size;
+		height: $size;
 
 		div {
 			box-sizing: border-box;
 			display: block;
 			position: absolute;
-			width: 13px;
-			height: 13px;
+			width: calc($size - $border);
+			height: calc($size - $border);
 			margin: 1px;
-			border: 2px solid var(--color, black);
+			border: $border solid var(--color, var);
 			border-radius: 50%;
 			animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
 			border-color: var(--color, black) transparent transparent transparent;

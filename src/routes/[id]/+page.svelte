@@ -1,11 +1,12 @@
 <script lang="ts">
+	import type { Document } from '$types/Document';
 	import Label from '$components/Label.svelte';
 	import ShareIcon from '$components/icons/ShareIcon.svelte';
 	import LabelForm from './LabelForm.svelte';
+	import { documents } from '$stores/documents';
+	import { page } from '$app/stores';
 
-	export let data;
-
-	$: ({ document } = data);
+	$: document = $documents.find((doc) => doc.id === $page.params.id) as Document;
 </script>
 
 <article>

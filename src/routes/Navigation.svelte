@@ -1,15 +1,14 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { documents } from '$stores/documents';
 	import NavigationItem from './NavigationItem.svelte';
-
-	$: documents = $page.data.documents;
 </script>
 
 <aside>
 	<h1>Documents</h1>
 
 	<ul>
-		{#each documents as document}
+		{#each $documents as document}
 			{@const selected = $page.params.id === document.id}
 
 			<NavigationItem {document} {selected} />

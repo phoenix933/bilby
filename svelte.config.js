@@ -18,6 +18,7 @@ const config = {
 			$api: 'src/api/*',
 			$components: 'src/components/*',
 			$lib: 'src/lib/*',
+			$stores: 'src/stores/*',
 			$styles: 'src/styles/*',
 			$types: 'src/types/*',
 		}

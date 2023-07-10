@@ -9,20 +9,23 @@
 	export let document: Document;
 
 	let saving = false;
+	let input: HTMLInputElement;
 
 	function suggest() {
 		label = getRandomLabel();
 	}
 
 	async function save() {
-		if (!label || !label?.trim().length) {
+		const { value } = input;
+
+		if (!value || !value?.trim().length) {
 			return;
 		}
 
 		try {
 			saving = true;
 
-			await documents.updateDocumentLabel(document.id, label);
+			await documents.updateDocumentLabel(document.id, value);
 		} catch (e: any) {
 			alert(e?.message || "Couldn't save changes");
 		} finally {
@@ -37,7 +40,7 @@
 	<div class="input-container">
 		<label for="label"> Label </label>
 
-		<input id="label" placeholder="E.g. china" type="text" bind:value={label} />
+		<input id="label" placeholder="E.g. china" type="text" value={label} bind:this={input} />
 	</div>
 
 	<div class="footer">

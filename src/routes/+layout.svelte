@@ -1,29 +1,16 @@
 <script lang="ts">
 	import '$styles/global.scss';
-	import { documents } from '$stores/documents';
 	import Navigation from './Navigation.svelte';
 	import Spinner from '$components/Spinner.svelte';
 </script>
 
-{#await documents.get()}
-	<div class="center">
-		<Spinner --size="50px" --color="white" />
+<div class="layout">
+	<Navigation />
 
-		Loading..
-	</div>
-{:then docs}
-	<div class="layout">
-		<Navigation />
-
-		<main>
-			<slot />
-		</main>
-	</div>
-{:catch error}
-	<div class="center">
-		{error?.message}
-	</div>
-{/await}
+	<main>
+		<slot />
+	</main>
+</div>
 
 <style lang="scss">
 	.layout {

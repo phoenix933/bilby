@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
 
+// TODO: move this to env variables
 const firebaseConfig = {
     apiKey: "AIzaSyA0v6sbrzwp1w3vJ-uF6kLLHsOKcfg9t2U",
     authDomain: "bilby-c26d5.firebaseapp.com",

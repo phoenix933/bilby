@@ -41,6 +41,8 @@
 		a {
 			padding: 1rem;
 			color: inherit;
+			width: 100%;
+			box-sizing: border-box;
 
 			:global(svg) {
 				flex-basis: 1rem;

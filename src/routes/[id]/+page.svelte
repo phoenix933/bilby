@@ -49,12 +49,9 @@
 
 			margin-bottom: 2rem;
 
-			.no-label {
-			}
-
 			a {
 				margin-left: auto;
-				color: rgb(15, 186, 129);
+				color: var(--primary-color);
 			}
 		}
 

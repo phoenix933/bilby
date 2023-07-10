@@ -10,7 +10,7 @@
 	span {
 		padding: 0.5rem 1rem;
 
-		background-color: rgb(79, 70, 229);
+		background-color: var(--secondary-color);
 		border: 2px solid transparent;
 
 		color: white;
@@ -22,7 +22,7 @@
 		text-transform: uppercase;
 
 		&.ringed {
-			border-color: rgb(79, 70, 229);
+			border-color: var(--secondary-color);
 			background-color: transparent;
 		}
 	}

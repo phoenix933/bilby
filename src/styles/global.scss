@@ -1,3 +1,10 @@
+:root {
+    --primary-color: rgb(15, 186, 129);
+    --secondary-color: rgb(79, 70, 229);
+
+    --border-color: rgb(73, 90, 143);
+}
+
 html,
 body {
     position: relative;
@@ -30,7 +37,7 @@ a {
 }
 
 button {
-    background-color: rgb(15, 186, 129);
+    background-color: var(--primary-color);
     color: black;
 
     border: 1px solid transparent;
@@ -52,8 +59,8 @@ button {
 
     &.ringed {
         background-color: transparent;
-        border: 1px solid rgb(15, 186, 129);
-        color: rgb(15, 186, 129);
+        border: 1px solid var(--primary-color);
+        color: var(--primary-color);
     }
 }
 

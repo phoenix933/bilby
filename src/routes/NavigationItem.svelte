@@ -28,7 +28,7 @@
 		margin-top: 1rem;
 
 		&.selected {
-			background-color: rgb(15, 186, 129);
+			background-color: var(--primary-color);
 			color: black;
 
 			&:hover {

@@ -65,7 +65,7 @@
 	form {
 		padding-top: 2rem;
 		margin-top: 2rem;
-		border-top: 1.5px solid rgb(73, 90, 143);
+		border-top: 1.5px solid var(--border-color);
 	}
 
 	.input-container {
@@ -87,7 +87,7 @@
 			outline: none;
 
 			background-color: rgb(55, 68, 107);
-			border: 1.5px solid rgb(73, 90, 143);
+			border: 1.5px solid var(--border-color);
 			color: white;
 			font-size: 1rem;
 			text-transform: uppercase;
@@ -95,11 +95,11 @@
 			border-radius: 0.5rem;
 
 			&::placeholder {
-				color: rgb(73, 90, 143);
+				color: var(--border-color);
 			}
 
 			&:focus-visible {
-				border-color: rgb(15, 186, 129);
+				border-color: var(--primary-color);
 			}
 		}
 	}

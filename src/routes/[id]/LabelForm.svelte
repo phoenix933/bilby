@@ -9,23 +9,16 @@
 	export let document: Document;
 
 	let saving = false;
-	let input: HTMLInputElement;
+	let label: string;
 
-	function suggest() {
-		label = getRandomLabel();
-	}
+	const handleInput = (e: any) => (label = e.target?.value);
+	const suggest = () => (label = getRandomLabel());
 
 	async function save() {
-		const { value } = input;
-
-		if (!value || !value?.trim().length) {
-			return;
-		}
-
 		try {
 			saving = true;
 
-			await documents.updateDocumentLabel(document.id, value);
+			await documents.updateDocumentLabel(document.id, label || '');
 		} catch (e: any) {
 			alert(e?.message || "Couldn't save changes");
 		} finally {
@@ -33,14 +26,14 @@
 		}
 	}
 
-	$: ({ label } = document);
+	$: label = document.label || '';
 </script>
 
 <form on:submit|preventDefault={save}>
 	<div class="input-container">
 		<label for="label"> Label </label>
 
-		<input id="label" placeholder="E.g. china" type="text" value={label} bind:this={input} />
+		<input id="label" placeholder="e.g. china" type="text" value={label} on:input={handleInput} />
 	</div>
 
 	<div class="footer">

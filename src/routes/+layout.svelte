@@ -15,6 +15,13 @@
 	div {
 		display: grid;
 		grid-template-columns: 25% 1fr;
-		min-height: 100vh;
+		height: 100vh;
+		overflow: hidden;
+
+		main {
+			padding: 1rem 2rem;
+
+			overflow-y: scroll;
+		}
 	}
 </style>

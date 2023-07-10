@@ -23,6 +23,9 @@
 		color: white;
 		padding: 1rem;
 
+		height: 100vh;
+		overflow-y: scroll;
+
 		h1 {
 			padding-left: 1rem;
 		}
